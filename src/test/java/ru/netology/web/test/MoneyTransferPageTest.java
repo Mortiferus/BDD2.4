@@ -45,15 +45,4 @@ class MoneyTransferPageTest {
         assertEquals(expectedFirst, cardsBalance[1]);
         assertEquals(expectedSecond, cardsBalance[2]);
     }
-
-    /* Failing test */
-//    @Test
-//    void shouldNotEgressOutOfBounds() {
-//        int expectedFirst = cardsBalance[1];
-//        int expectedSecond = cardsBalance[2];
-//        new DashboardPage().moneyTransfer(cardNumber(1)).transaction(Integer.toString(value1 + value2 + value3), cardNumber(2));
-//        cardsBalance = cardsBalance();
-//        assertEquals(expectedFirst, cardsBalance[1]);
-//        assertEquals(expectedSecond, cardsBalance[2]);
-//    }
 }
