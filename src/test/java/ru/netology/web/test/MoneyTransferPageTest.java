@@ -13,9 +13,9 @@ import static ru.netology.web.page.DashboardPage.*;
 
 class MoneyTransferPageTest {
     private int[] cardsBalance;
-    private int value1 = 5_637;
-    private int value2 = 4_126;
-    private int value3 = 1_968;
+    private int sum1 = 5_637;
+    private int sum2 = 4_126;
+    private int sum3 = 1_968;
 
     @BeforeEach
     void setUp() {
@@ -35,12 +35,12 @@ class MoneyTransferPageTest {
 
     @Test
     void shouldTransferMoneyBetweenOwnCards() {
-        int expectedFirst = cardsBalance[1] + value1 + value2 - value3;
-        int expectedSecond = cardsBalance[2] - value1 - value2 + value3;
+        int expectedFirst = cardsBalance[1] + sum1 + sum2 - sum3;
+        int expectedSecond = cardsBalance[2] - sum1 - sum2 + sum3;
         var dashboard = new DashboardPage();
-        dashboard.moneyTransfer(cardNumber(1)).transaction(Integer.toString(value1), cardNumber(2));
-        dashboard.moneyTransfer(cardNumber(1)).transaction(Integer.toString(value2), cardNumber(2));
-        dashboard.moneyTransfer(cardNumber(2)).transaction(Integer.toString(value3), cardNumber(1));
+        dashboard.moneyTransfer(cardNumber(1)).transaction(Integer.toString(sum1), cardNumber(2));
+        dashboard.moneyTransfer(cardNumber(1)).transaction(Integer.toString(sum2), cardNumber(2));
+        dashboard.moneyTransfer(cardNumber(2)).transaction(Integer.toString(sum3), cardNumber(1));
         cardsBalance = cardsBalance();
         assertEquals(expectedFirst, cardsBalance[1]);
         assertEquals(expectedSecond, cardsBalance[2]);
